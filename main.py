@@ -43,6 +43,7 @@ def InitDatabase():
 def SaveDatabase():
     scores = list(global_data['scores'].items())
     scores.sort(key=lambda x: x[1])
+    scores.reverse()
     with open(global_data['data_fname'], "w") as f:
         for score in scores:
             f.write("%i %s\n" % (score[1], score[0]))
